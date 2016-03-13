@@ -8,7 +8,7 @@ public var numberOfPickups:int = 2;
 private var spawnPointList:GameObject[];
  
 // array of which spawn points are currently available for spawning at
- var spawnIndexAvailableList:Array = [];
+private var spawnIndexAvailableList:Array = [];
  
 // variable to hold the total number of spawn points, saves having to recalculate
 private var numberOfSpawnPoints:int;
@@ -65,4 +65,22 @@ function SpawnPickup()
      
     // make the spawn index unavailable to prevent another pickup being spawned in this position
     spawnIndexAvailableList[randomSpawnIndex] = false;
-}
+    }
+    function Collected(pickupCollected:GameObject)
+    {
+        // retrieve name of the collected pickup and cast to int
+        var index:int = parseInt(pickupCollected.name);
+     
+        // pickup has been destroyed so make the spawn index available again
+        spawnIndexAvailableList[index] = true;
+        
+        // destroy the pickup
+        Destroy(pickupCollected);
+
+        //respawn new pickup
+        SpawnPickup();
+
+
+        //We can possibly add more functionality to this function, such as having it respawn items after a set amount of time
+        
+    }
