@@ -1,3 +1,6 @@
+#Goals
+###Work to be completed. Completed work is struck through.
+
 Goal | Escape Mode | Survival Mode | Description | Effort | Work Begun
 -----|-------------|---------------|-------------|--------|------------
 Win conditions | x |  | Add logic to level 1 for win condition | 1 | 
@@ -33,7 +36,7 @@ Menu system | x | x | Create title screen | 1 |
  | x |   | Create "you won" text for end game screen | 1/2 |
  |   | x | Create scoreboard for end game screen | 8 |
  | x | x | Link menu screens | 5 |
- } x } x | Inventory screens | 13 |
+ | x | x | Inventory screens | 13 |
 Sound effects | x | x | Gather sound effect assets | 5 | X
  | x | x | Link sound effects to level 1 | 13 | X
  | x |   | Link sound effects to level 2 | 13 |
