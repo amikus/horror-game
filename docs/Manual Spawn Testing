@@ -1,0 +1,7 @@
+Step 1: Create 12 spawnpoints, that create 4 boxes
+Step 2: Launch game
+Step 3: Navigate to a box and collide with it
+Step 4: Make sure script detected collision and destroyed the object
+Step 5: Make sure that a new box was spawned in a different location
+Step 6: Repeat 3-5 to be sure that the destroyed objects are freeing up that location
+Step 7: Interact with other objects to make sure that they are not being destroyed too
