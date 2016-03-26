@@ -1,9 +1,12 @@
 #Testing
 
 ##Assertions and Unit Tests
-#####Unit Test 1
-
-#####Unit Test 2
+#####Enemy Boundary Checks
+* Assert enemy z-coordinate > z-coordinate of bottom boundary collider
+* Assert enemy z-coordinate < z-coordinate of top boundary collider
+* Assert enemy x-coordinate > x-coordinate of left boundary collider
+* Assert enemy x-coordinate < x-coordinate of right boundary collider
+* Assert enemy y-coordinate < 300 (implicit boundary height)
 
 ##Manual and Integration Tests
 #####Spawn Points Test
