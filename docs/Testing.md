@@ -8,6 +8,13 @@
 * Assert enemy x-coordinate < x-coordinate of right boundary collider
 * Assert enemy y-coordinate < 300 (implicit boundary height)
 
+#####Player Boundary Checks
+* Assert first person camera (player) z-coordinate > z-coordinate of bottom boundary collider
+* Assert first person camera (player) z-coordinate < z-coordinate of top boundary collider
+* Assert first person camera (player) x-coordinate > x-coordinate of left boundary collider
+* Assert first person camera (player) x-coordinate < x-coordinate of right boundary collider
+* Assert first person camera (player) y-coordinate < 300 (implicit boundary height)
+
 ##Manual and Integration Tests
 #####Spawn Points Test
 1. Create 12 spawn points that create 4 boxes.
