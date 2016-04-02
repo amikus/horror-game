@@ -73,9 +73,7 @@ using System.Collections;
             // Set the death flag so this function won't be called again.
             isDead = true;
 
-
-
-
+            
         }
     }//end PlayerHealth
 }//end namespace
