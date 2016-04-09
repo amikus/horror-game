@@ -29,8 +29,8 @@ Map/Level construction | x | x | ~~Roughly design levels~~ | 2 | X
  | x |   | Build level 2 | 40 |
  | x | x | Build logic for doors | 2 |
  | x | x | ~~Implement spawn points~~ | 13 | X
- | x | x | Identify every spawn point location | 8 | X
-Menu system | x | x | Create title screen | 1 |
+ | x | x | Identify every item spawn point location | 8 | X
+Menu system | x | x | ~~Create title screen~~ | 1 | X
  | x | x | Create game type selection screen | 2 |
  | x | x | Link game type selection to level 1 | 1 |
  | x | x | Create end game screen | 1 |
@@ -52,12 +52,12 @@ In-game UI |   | x | Score (in survival mode) | 8 |
  | x | x | Ability to access menu system from within game | 5 | X
 Player character| x | x | ~~First-person camera~~ | 2 | X
  | x | x | ~~Movement~~ | 5 | X
- | x | x | Targeting crosshair | 8 |
+ | x | x | ~~Targeting crosshair~~ | 8 |
  | x | x | ~~Life totals~~ | 8 | X
  | x | x | Ability to pick up items | 13 | X
  | x | x | Inventory system (link with screen) | 20 |
  | x | x | Ability to open doors | 8 |
- | x | x | Ability to fire weapons | 13 | X
+ | x | x | ~~Ability to fire weapons~~ | 13 | X
  | x | x | ~~Ability to take damage~~ | 8 | X
  Testing | x | x | Unit testing and assertions | 55 | X
  | x | x | Integration and manual testing | 55 | X
