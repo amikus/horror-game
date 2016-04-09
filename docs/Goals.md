@@ -33,26 +33,26 @@ Map/Level construction | x | x | ~~Roughly design levels~~ | 2 | X
 Menu system | x | x | ~~Create title screen~~ | 1 | X
  | x | x | Create game type selection screen | 2 |
  | x | x | Link game type selection to level 1 | 1 |
- | x | x | Create end game screen | 1 |
- | x |   | Create "you lost" text for end game screen | 1/2 |
+ | x | x | ~~Create end game screen~~ | 1 | X
+ | x |   | ~~Create "you lost" text for end game screen~~ | 1/2 | X
  | x |   | Create "you won" text for end game screen | 1/2 |
  |   | x | Create scoreboard for end game screen | 8 |
- | x | x | Link menu screens | 5 |
+ | x | x | Link menu screens | 5 | X
  | x | x | Inventory screens | 13 |
 Sound effects | x | x | Gather sound effect assets | 5 | X
  | x | x | Link sound effects to level 1 | 13 | X
  | x |   | Link sound effects to level 2 | 13 |
-Music | x | x | Gather background music assets | 5 |
- | x | x | Link background music to level 1 | 3 |
+Music | x | x | Gather background music assets | 5 | X
+ | x | x | ~~Link background music to level 1~~ | 3 | X
  | x |   | Link background music to level 2 | 3 |
- | x | x | Link background music to title screen and game type selection screens | 3 |
+ | x | x | ~~Link background music to title screen and game type selection screens~~ | 3 | X
  | x | x | Link background music to end screens | 3 |
 In-game UI |   | x | Score (in survival mode) | 8 |
  | x | x | Items | 20 |
  | x | x | Ability to access menu system from within game | 5 | X
 Player character| x | x | ~~First-person camera~~ | 2 | X
  | x | x | ~~Movement~~ | 5 | X
- | x | x | ~~Targeting crosshair~~ | 8 |
+ | x | x | Targeting crosshair | 8 |
  | x | x | ~~Life totals~~ | 8 | X
  | x | x | Ability to pick up items | 13 | X
  | x | x | Inventory system (link with screen) | 20 |
