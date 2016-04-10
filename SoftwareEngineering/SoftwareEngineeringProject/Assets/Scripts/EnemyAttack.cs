@@ -77,7 +77,7 @@ public class EnemyAttack : MonoBehaviour
         // Reset the timer.
         timer = 0f;
 
-        anim.Play("monster1Attack1");
+        anim.Play("Attack1");
 
         // If the player has health to lose, damage the player
         if (playerHealth.currentHealth > 0)
