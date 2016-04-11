@@ -21,7 +21,7 @@ public class EnemyAttack : MonoBehaviour
     //is player in range to be hit?
     bool playerInRange;
     //has enough time passed to attack again?
-    float timer;
+    float timer = 9;
 
 
     void Awake()
