@@ -2,6 +2,7 @@
 {
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 
@@ -62,6 +63,7 @@ using System.Collections;
             if (currentHealth <= 0 && !isDead)
             {
                 // ... it should die.
+                SceneManager.LoadScene("Game Over");
                 Death();
             }
             return healthSlider.value;//put here for testing purposes

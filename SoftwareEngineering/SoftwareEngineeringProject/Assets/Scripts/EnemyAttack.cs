@@ -21,7 +21,7 @@ public class EnemyAttack : MonoBehaviour
     //is player in range to be hit?
     bool playerInRange;
     //has enough time passed to attack again?
-    float timer;
+    float timer = 9;
 
 
     void Awake()
@@ -30,7 +30,7 @@ public class EnemyAttack : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
 
@@ -76,6 +76,8 @@ public class EnemyAttack : MonoBehaviour
     {
         // Reset the timer.
         timer = 0f;
+
+        anim.Play("Attack1");
 
         // If the player has health to lose, damage the player
         if (playerHealth.currentHealth > 0)

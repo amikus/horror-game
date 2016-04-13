@@ -78,7 +78,7 @@ function SpawnPickup()
         Destroy(pickupCollected);
 
         //respawn new pickup
-        SpawnPickup();
+        //SpawnPickup();
 
 
         //We can possibly add more functionality to this function, such as having it respawn items after a set amount of time
