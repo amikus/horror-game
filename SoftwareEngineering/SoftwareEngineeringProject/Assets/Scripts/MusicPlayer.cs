@@ -13,6 +13,7 @@ public class MusicPlayer : MonoBehaviour {
             Destroy(gameObject);
         } else
         {
+            instance = this;
             GameObject.DontDestroyOnLoad(gameObject);
         }
         
