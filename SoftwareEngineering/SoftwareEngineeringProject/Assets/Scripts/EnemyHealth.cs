@@ -11,13 +11,13 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
     
     //enemy will sink through floor upon death   
-    public float deathSinkSpeed = 2.5f;
+    public float deathSinkSpeed = 5f;
 
     //points (for game type 2)
     //public int scoreValue = 10;
 
     //Audio clip of death, if needed
-    //public AudioClip deathClip;
+    public AudioClip deathClip;
 
     //references to various Unity components
     Animator anim;
@@ -31,8 +31,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Awake()
     {
-        // Set up the references
-        anim = GetComponent<Animator>();
+        // Set up the references 
+        anim = GetComponent<Animator>()                ;
         enemyAudio = GetComponent<AudioSource>();
         //hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -51,14 +51,17 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void TakeDamage(int amount, Vector3 hitPoint)
+    public void TakeDamage(int amount)
+    //If we decide to have particle, may need hit location,
+    //and signature will change to:
+    //public void TakeDamage(int amount, Vector3 hitPoint)
     {
         // If the enemy is dead, exit function
         if (isDead)
             return;
 
         // Play the hurt sound effect.
-        //enemyAudio.Play();
+        enemyAudio.Play();
 
         // Reduce the current health by the amount of damage sustained.
         currentHealth -= amount;
@@ -89,8 +92,8 @@ public class EnemyHealth : MonoBehaviour
         anim.SetTrigger("Dead");
 
         // Change the audio clip of the audio source to the death clip and play it (this will stop the hurt clip playing)
-        //enemyAudio.clip = deathClip;
-        //enemyAudio.Play();
+        enemyAudio.clip = deathClip;
+        enemyAudio.Play();
     }
 
 
