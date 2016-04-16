@@ -9,9 +9,6 @@ public class EnemyHealth : MonoBehaviour
     //enemy health
     public int startingHealth = 100;            
     public int currentHealth;
-    
-    //enemy will sink through floor upon death   
-    public float deathSinkSpeed = 1f;
 
     //points (for game type 2)
     //public int scoreValue = 10;
@@ -27,7 +24,6 @@ public class EnemyHealth : MonoBehaviour
 
     //death state
     bool isDead;
-    bool isSinking;
 
     void Awake()
     {
@@ -43,11 +39,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
-        // If the enemy should be sinking, move enemy down by sink speed per second
-        if (isSinking)
-        {
-            //transform.Translate(-Vector3.up * deathSinkSpeed * Time.deltaTime);
-        }
+
     }
 
 
@@ -94,24 +86,19 @@ public class EnemyHealth : MonoBehaviour
         // Change the audio clip of the audio source to the death clip and play it (this will stop the hurt clip playing)
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
-    }
 
-
-    public void StartSinking()
-    {
         // Find and disable the Nav Mesh Agent
         GetComponent<NavMeshAgent>().enabled = false;
 
         // Find the rigidbody component and make it kinematic (since we use Translate to sink the enemy)
         GetComponent<Rigidbody>().isKinematic = true;
 
-        // The enemy should now sink
-        isSinking = true;
-
         // Increase the score by the enemy's score value
-       // ScoreManager.score += scoreValue;
+        // ScoreManager.score += scoreValue;
 
         // After 2 seconds destory the enemy.
         Destroy(gameObject, 5f);
+
     }
+
 }
