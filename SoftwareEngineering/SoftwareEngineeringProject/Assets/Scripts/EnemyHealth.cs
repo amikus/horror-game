@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
     
     //enemy will sink through floor upon death   
-    public float deathSinkSpeed = 5f;
+    public float deathSinkSpeed = 1f;
 
     //points (for game type 2)
     //public int scoreValue = 10;
@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         // If the enemy should be sinking, move enemy down by sink speed per second
         if (isSinking)
         {
-            transform.Translate(-Vector3.up * deathSinkSpeed * Time.deltaTime);
+           // transform.Translate(-Vector3.up * deathSinkSpeed * Time.deltaTime);
         }
     }
 
@@ -112,6 +112,6 @@ public class EnemyHealth : MonoBehaviour
        // ScoreManager.score += scoreValue;
 
         // After 2 seconds destory the enemy.
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 5f);
     }
 }
