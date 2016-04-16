@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         // If the enemy should be sinking, move enemy down by sink speed per second
         if (isSinking)
         {
-           // transform.Translate(-Vector3.up * deathSinkSpeed * Time.deltaTime);
+            //transform.Translate(-Vector3.up * deathSinkSpeed * Time.deltaTime);
         }
     }
 
