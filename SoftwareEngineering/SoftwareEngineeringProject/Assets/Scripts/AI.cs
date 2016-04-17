@@ -83,30 +83,42 @@ public class AI : MonoBehaviour
             //get distance between enemy and player
             distance = Vector3.Distance(target.position, transform.position);
 
+            /*
             // if enemy can see Player
             if (distance < lookAtDistance)
             {
+                anim.Play("Idle");
                 lookAt();
+
             }
 
             // if enemy cannot see Player
             if (distance > lookAtDistance)
             {
-
+                anim.Play("Idle");
             }
-
+            */
             // If the timer exceeds the time between attacks and player is in range and enemy is alive, attack
             if (distance < attackRange && timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
             {
+                anim.SetTrigger("Walk");
                 attack();
             }
             // if enemy is close enough to chase
             else if (distance < chaseRange && distance >= attackRange)
             {
-
+                anim.SetTrigger("Walk");
                 chase();
 
             }
+            else if (distance < lookAtDistance)
+            {
+                anim.SetTrigger("Idle");
+                lookAt();
+            } else if   (distance > lookAtDistance)
+                {
+                    anim.SetTrigger("Idle");
+                }
         }
     } // Update
 
@@ -123,13 +135,7 @@ public class AI : MonoBehaviour
 
     void chase()
     {
-
-        // enemy will move forward at its move speed
-        // moveDirection = transform.forward;
-        //moveDirection *= moveSpeed;
-        // if it falls, it will do so at speed of its gravity
-        // moveDirection.y -= gravity * Time.deltaTime;
-
+       
         // If the enemy and the player have health left...
         if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
         {
