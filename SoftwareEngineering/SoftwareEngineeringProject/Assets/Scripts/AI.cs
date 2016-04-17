@@ -26,7 +26,7 @@ public class AI : MonoBehaviour
     float damping = 6f;
 
     // get access to in game objects
-    public Transform target;
+    Transform target;
     Animator anim;
     //references to player object
     GameObject player;
@@ -41,6 +41,7 @@ public class AI : MonoBehaviour
         playerHealth = player.GetComponent<PH.PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent<Animator>();
+        target = player.transform;
     }
 
     // Use this for initialization
@@ -79,27 +80,28 @@ public class AI : MonoBehaviour
         distance = Vector3.Distance(target.position, transform.position);
 
         // if enemy can see Player
-        if (distance < lookAtDistance)
+        if (distance < lookAtDistance && GetComponent<CharacterController>().enabled)
         {
-            //turn him yellow and have him turn towards player
             lookAt();
         }
 
         // if enemy cannot see Player
-        if (distance > lookAtDistance)
+        if (distance > lookAtDistance && GetComponent<CharacterController>().enabled)
         {
 
         }
 
         // If the timer exceeds the time between attacks and player is in range and enemy is alive, attack
-        if (distance < attackRange && timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+        if (distance < attackRange && timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0 && GetComponent<CharacterController>().enabled)
         {
             attack();
         }
         // if enemy is close enough to chase
-        else if (distance < chaseRange && distance >= attackRange)
+        else if (distance < chaseRange && distance >= attackRange && GetComponent<CharacterController>().enabled)
         {
-            chase();
+            
+                chase();
+  
         }
 
     } // Update

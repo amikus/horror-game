@@ -78,7 +78,7 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
 
         // Turn the collider into a trigger so shots can pass through it
-        capsuleCollider.isTrigger = true;
+        //capsuleCollider.isTrigger = true;
 
         // Tell the animator that the enemy is dead
         anim.SetTrigger("Dead");
@@ -88,7 +88,8 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio.Play();
 
         // Find and disable the Nav Mesh Agent
-        GetComponent<NavMeshAgent>().enabled = false;
+        //GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<CharacterController>().enabled = false;
 
         // Find the rigidbody component and make it kinematic (since we use Translate to sink the enemy)
         GetComponent<Rigidbody>().isKinematic = true;
