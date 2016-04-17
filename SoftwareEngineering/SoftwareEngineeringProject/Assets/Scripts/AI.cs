@@ -12,7 +12,10 @@ public class AI : MonoBehaviour
     public float chaseRange = 15f;
     float moveSpeed = 3f;
     // Reference to the nav mesh agent.
-    NavMeshAgent nav;               
+    NavMeshAgent nav;
+    // for controlling how far enemy can roam
+    Vector3 startPosition;
+    public int roamRadius = 100;
 
     // variables related to attacking
     public float attackRange = 1.5f;
@@ -44,6 +47,7 @@ public class AI : MonoBehaviour
         anim = GetComponent<Animator>();
         target = player.transform;
         nav = GetComponent<NavMeshAgent>();
+        startPosition = transform.position;
     }
 
     // Use this for initialization
@@ -83,21 +87,6 @@ public class AI : MonoBehaviour
             //get distance between enemy and player
             distance = Vector3.Distance(target.position, transform.position);
 
-            /*
-            // if enemy can see Player
-            if (distance < lookAtDistance)
-            {
-                anim.Play("Idle");
-                lookAt();
-
-            }
-
-            // if enemy cannot see Player
-            if (distance > lookAtDistance)
-            {
-                anim.Play("Idle");
-            }
-            */
             // If the timer exceeds the time between attacks and player is in range and enemy is alive, attack
             if (distance < attackRange && timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
             {
@@ -113,12 +102,14 @@ public class AI : MonoBehaviour
             }
             else if (distance < lookAtDistance)
             {
-                anim.SetTrigger("Idle");
+                anim.SetTrigger("Walk");
                 lookAt();
             } else if   (distance > lookAtDistance)
-                {
-                    anim.SetTrigger("Idle");
-                }
+            {
+                anim.SetTrigger("Walk");
+                wander();
+            }
+
         }
     } // Update
 
@@ -164,5 +155,15 @@ public class AI : MonoBehaviour
             playerHealth.TakeDamage(attackDamage);
         }
     } // attack
+
+    void wander()
+    {
+        //generate a vector that's a random distance away from starting position
+        Vector3 waypoint = Random.insideUnitSphere * roamRadius;
+        waypoint += startPosition;
+
+        nav.SetDestination(waypoint);
+
+    }
 
 }
