@@ -87,9 +87,8 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio.clip = deathClip;
         enemyAudio.Play();
 
-        // Find and disable the Nav Mesh Agent
-        //GetComponent<NavMeshAgent>().enabled = false;
-        GetComponent<CharacterController>().enabled = false;
+        // Find and disable the nav mesh agent
+        GetComponent<NavMeshAgent>().enabled = false;
 
         // Find the rigidbody component and make it kinematic (since we use Translate to sink the enemy)
         GetComponent<Rigidbody>().isKinematic = true;

@@ -6,12 +6,13 @@ public class AI : MonoBehaviour
     
     //variables related to movement/orientation
     float distance;
-    float gravity = 20f;
+    //float gravity = 20f;
     private Vector3 moveDirection = Vector3.zero;
     public float lookAtDistance = 25f;
     public float chaseRange = 15f;
-    float moveSpeed = 5f;
-    public CharacterController controller;
+    float moveSpeed = 3f;
+    // Reference to the nav mesh agent.
+    NavMeshAgent nav;               
 
     // variables related to attacking
     public float attackRange = 1.5f;
@@ -42,6 +43,7 @@ public class AI : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent<Animator>();
         target = player.transform;
+        nav = GetComponent<NavMeshAgent>();
     }
 
     // Use this for initialization
@@ -76,34 +78,36 @@ public class AI : MonoBehaviour
         // Add the time since Update was last called to the timer.
         timer += Time.deltaTime;
 
-        //get distance between enemy and player
-        distance = Vector3.Distance(target.position, transform.position);
-
-        // if enemy can see Player
-        if (distance < lookAtDistance && GetComponent<CharacterController>().enabled)
+        if (nav.enabled)
         {
-            lookAt();
-        }
+            //get distance between enemy and player
+            distance = Vector3.Distance(target.position, transform.position);
 
-        // if enemy cannot see Player
-        if (distance > lookAtDistance && GetComponent<CharacterController>().enabled)
-        {
+            // if enemy can see Player
+            if (distance < lookAtDistance)
+            {
+                lookAt();
+            }
 
-        }
+            // if enemy cannot see Player
+            if (distance > lookAtDistance)
+            {
 
-        // If the timer exceeds the time between attacks and player is in range and enemy is alive, attack
-        if (distance < attackRange && timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0 && GetComponent<CharacterController>().enabled)
-        {
-            attack();
-        }
-        // if enemy is close enough to chase
-        else if (distance < chaseRange && distance >= attackRange && GetComponent<CharacterController>().enabled)
-        {
-            
+            }
+
+            // If the timer exceeds the time between attacks and player is in range and enemy is alive, attack
+            if (distance < attackRange && timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+            {
+                attack();
+            }
+            // if enemy is close enough to chase
+            else if (distance < chaseRange && distance >= attackRange)
+            {
+
                 chase();
-  
-        }
 
+            }
+        }
     } // Update
 
     void lookAt()
@@ -116,16 +120,28 @@ public class AI : MonoBehaviour
 
     } // lookAt
 
+
     void chase()
     {
 
         // enemy will move forward at its move speed
-        moveDirection = transform.forward;
-        moveDirection *= moveSpeed;
+        // moveDirection = transform.forward;
+        //moveDirection *= moveSpeed;
         // if it falls, it will do so at speed of its gravity
-        moveDirection.y -= gravity * Time.deltaTime;
+        // moveDirection.y -= gravity * Time.deltaTime;
 
-        controller.Move(moveDirection * Time.deltaTime);
+        // If the enemy and the player have health left...
+        if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
+        {
+            // ... set the destination of the nav mesh agent to the player.
+            nav.SetDestination(target.position);
+        }
+        // Otherwise...
+        else
+        {
+            // ... disable the nav mesh agent.
+            nav.enabled = false;
+        }
 
     } // chase
 
