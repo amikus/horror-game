@@ -6,14 +6,14 @@ Goal | Escape Mode | Survival Mode | Description | Effort | Work Begun
 Win conditions | x |  | Add logic to level 1 for win condition | 1 | 
  | x |   | Add logic to level 2 for win condition | 1 |
  |   | x | Add score board to level | 5 |
-Monsters | x | x | Research AI | 40 | X
- | x | x | Reach decision about AI varieties | 8 | X
+Monsters | x | x | ~~Research AI~~ | 40 | X
+ | x | x | ~~Reach decision about AI varieties~~ | 8 | X
  | x | x | ~~Gather model assets~~ | 5 | X
  | x | x | ~~Animate models~~ | 13 | X
  | x | x | ~~Add ability to track player movement~~ | 8 | X
  | x | x | ~~Add hit points~~ | 2 | X 
  | x | x | ~~Add ability to damage player~~ | 3 |
- | x | x | Implement AI for each monster type | 100 |
+ | x | x | ~~Implement AI for each monster type~~ | 100 |
  |   | x | Add difficulty scaling as time passes | 3 |
  | x | x | ~~Set up spawning locations~~ | 13 | X
  | x | x | Establish spawning type and frequency | 20 |
