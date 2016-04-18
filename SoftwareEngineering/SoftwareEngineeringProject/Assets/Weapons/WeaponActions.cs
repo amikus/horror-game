@@ -4,6 +4,8 @@ using System.Collections;
 public class WeaponActions : MonoBehaviour {
 
 	public Weapon weapon;
+    //temporary variable. May be a better way to do this.
+    int damagePerShot = 20;
 
 	void Start () {}
 
@@ -22,7 +24,16 @@ public class WeaponActions : MonoBehaviour {
 			weapon.muzzleFlash.Play ();
 			weapon.fireSound.Play ();
 			if (Physics.Raycast (weapon.rayCaster.transform.position, forward, out hit, weapon.range)) {
-				Instantiate (weapon.bullethole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
+
+                //damage the enemy
+                EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                if(enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(damagePerShot);
+                    //update above signature to include hit location if particles will be used. sig should be enemyHealth.TakeDame(damagePerShot, hit.point);
+                }
+
+                Instantiate (weapon.bullethole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
 			}
 			weapon.recoil += Time.deltaTime/(60/weapon.RPM);
 		}
@@ -35,7 +46,16 @@ public class WeaponActions : MonoBehaviour {
 				weapon.muzzleFlash.Play ();
 				weapon.fireSound.Play ();
 				if (Physics.Raycast (weapon.rayCaster.transform.position, forward, out hit, weapon.range))  {
-					Instantiate (weapon.bullethole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
+
+                    //damage the enemy
+                    EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                    if (enemyHealth != null)
+                    {
+                        enemyHealth.TakeDamage(damagePerShot);
+                        //update above signature to include hit location if particles will be used. sig should be enemyHealth.TakeDame(damagePerShot, hit.point);
+                    }
+
+                    Instantiate (weapon.bullethole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
 				}
 				weapon.recoil += Time.deltaTime/(60/weapon.RPM);
 			}
