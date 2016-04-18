@@ -19,7 +19,7 @@ public class AI : MonoBehaviour
 
     // variables related to attacking
     public float attackRange = 1.5f;
-    public float timeBetweenAttacks = .2f;
+    public float timeBetweenAttacks = 15f;
     public int attackDamage = 25;
     //is player in range to be hit?
     bool playerInRange;
@@ -91,6 +91,7 @@ public class AI : MonoBehaviour
             if (distance < attackRange && timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
             {
                 anim.SetTrigger("Walk");
+                Debug.Log("Calling attack.\ntimer (" + timer + ") < timeBetweenAttacks: (" + timeBetweenAttacks + ")");
                 attack();
             }
             // if enemy is close enough to chase
