@@ -39,7 +39,7 @@ Menu system | x | x | ~~Create title screen~~ | 1 | X
  | x | x | ~~Link menu screens~~ | 5 | X
  | x | x | Inventory screens | 13 |
 Sound effects | x | x | Gather sound effect assets | 5 | X
- | x | x | Link sound effects to level 1 | 13 | X
+ | x | x | ~~Link sound effects to level 1~~ | 13 | X
  | x |   | Link sound effects to level 2 | 13 |
 Music | x | x | Gather background music assets | 5 | X
  | x | x | ~~Link background music to level 1~~ | 3 | X
