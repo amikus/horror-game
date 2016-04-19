@@ -4,8 +4,6 @@ using System.Collections;
 public class WeaponActions : MonoBehaviour {
 
 	public Weapon weapon;
-    //temporary variable. May be a better way to do this.
-    int damagePerShot = 20;
 
 	void Start () {}
 
@@ -14,9 +12,11 @@ public class WeaponActions : MonoBehaviour {
 		Debug.DrawRay (weapon.rayCaster.transform.position, forward, Color.green);
 		RaycastHit hit;
 		Recoil ();
+
 		if (Input.GetKeyDown (KeyCode.R) && weapon.ammoReserve >= 1 && weapon.ammoInClip < weapon.clipSize) {
 			StartCoroutine(Reload ());
 		}
+
 		if (weapon.type == Weapon.weaponType.semi && Input.GetMouseButtonDown (0) && weapon.ammoInClip >= 1) {
 			weapon.ammoInClip --;
 			weapon.muzzleFlash.Stop ();
@@ -24,19 +24,21 @@ public class WeaponActions : MonoBehaviour {
 			weapon.muzzleFlash.Play ();
 			weapon.fireSound.Play ();
 			if (Physics.Raycast (weapon.rayCaster.transform.position, forward, out hit, weapon.range)) {
-
-                //damage the enemy
-                EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-                if(enemyHealth != null)
-                {
-                    enemyHealth.TakeDamage(damagePerShot);
-                    //update above signature to include hit location if particles will be used. sig should be enemyHealth.TakeDame(damagePerShot, hit.point);
-                }
-
-                Instantiate (weapon.bullethole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
+				if (hit.transform.tag == "Enemy") {
+					EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth> ();
+					if (enemyHealth != null) {
+						enemyHealth.TakeDamage (weapon.DPB);
+					}
+					weapon.bloodSplatter.transform.position = hit.point;
+					weapon.bloodSplatter.Play ();
+				}
+				else {
+					Instantiate (weapon.bullethole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
+				}
 			}
 			weapon.recoil += Time.deltaTime/(60/weapon.RPM);
 		}
+
 		if (weapon.type == Weapon.weaponType.auto && Input.GetMouseButton (0) && weapon.ammoInClip >= 1) {
 			int aIC = (int)weapon.ammoInClip;
 			weapon.ammoInClip -= Time.deltaTime/(60/weapon.RPM);
@@ -45,29 +47,29 @@ public class WeaponActions : MonoBehaviour {
 				weapon.fireSound.Stop ();
 				weapon.muzzleFlash.Play ();
 				weapon.fireSound.Play ();
-				if (Physics.Raycast (weapon.rayCaster.transform.position, forward, out hit, weapon.range))  {
-
-                    //damage the enemy
-                    EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-                    if (enemyHealth != null)
-                    {
-                        enemyHealth.TakeDamage(damagePerShot);
-                        //update above signature to include hit location if particles will be used. sig should be enemyHealth.TakeDame(damagePerShot, hit.point);
-                    }
-
-                    Instantiate (weapon.bullethole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
+				if (Physics.Raycast (weapon.rayCaster.transform.position, forward, out hit, weapon.range)) {
+					if (hit.transform.tag == "Enemy") {
+						EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth> ();
+						if (enemyHealth != null) {
+							enemyHealth.TakeDamage (weapon.DPB);
+						}
+						weapon.bloodSplatter.transform.position = hit.point;
+						weapon.bloodSplatter.Play ();
+					}
+					else {
+						Instantiate (weapon.bullethole, hit.point, Quaternion.FromToRotation (Vector3.up, hit.normal));
+					}
 				}
 				weapon.recoil += Time.deltaTime/(60/weapon.RPM);
 			}
 		}
-	}
+	}//Update
 
 	void OnGUI() {
 		GUILayout.Label("Weapon : " + weapon.name);
 		GUILayout.Label("Ammo in Clip : " + (int)weapon.ammoInClip);
 		GUILayout.Label("Ammo in Reserve : " + (int)weapon.ammoReserve);
-	}
-		
+	}//OnGUI
 
 	IEnumerator Reload() {
 		weapon.reloadSound.Play ();
@@ -85,7 +87,7 @@ public class WeaponActions : MonoBehaviour {
 			weapon.ammoReserve = 0;
 		}
 		weapon.reloadSound.Stop ();
-	}
+	}//Reload
 
 	void Recoil() {
 		if (weapon.recoil > 0) {
@@ -101,9 +103,9 @@ public class WeaponActions : MonoBehaviour {
 			weapon.model.transform.localRotation = Quaternion.Slerp(weapon.model.transform.localRotation, Quaternion.identity, Time.deltaTime*weapon.recoilRate);
 			weapon.model.transform.localEulerAngles = new Vector3(weapon.model.transform.localEulerAngles.x, weapon.model.transform.localEulerAngles.y, weapon.model.transform.localEulerAngles.z);
 		}
-	}
+	}//Recoil
 
-}
+}//WeaponActions
 
 [System.Serializable]
 public class Weapon {
@@ -112,12 +114,14 @@ public class Weapon {
 	public AudioSource fireSound;
 	public AudioSource reloadSound;
 	public ParticleSystem muzzleFlash;
+	public ParticleSystem bloodSplatter;
 	public GameObject rayCaster;
 	public GameObject bullethole;
 	public enum weaponAmmo {pistol = 0, shotgun = 1, autorifle = 2};
 	public weaponAmmo ammo;
 	public enum weaponType {semi = 0, auto = 1};
 	public weaponType type;
+	public int DPB = 0;
 	public float RPM = 0;
 	public float clipSize = 0;
 	public float ammoInClip = 0;
@@ -128,4 +132,4 @@ public class Weapon {
 	public float maxRecoilX = 0;
 	public float maxRecoilY = 0;
 	public float ammoReserve = 0;
-}
+}//Weapon
