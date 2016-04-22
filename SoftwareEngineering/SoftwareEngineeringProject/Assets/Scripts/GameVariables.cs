@@ -3,5 +3,5 @@ using System.Collections;
 
 public static class GameVariables  {
 
-    public static bool keyPickedUp; 
+    public static bool keyCollected = false; 
 }
