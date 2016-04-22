@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
         GameObject pickupSpawnPoints = GameObject.Find("KeySpawnPoints");
 
         //and then retrieve the PickupController Component of the above PickupSpawnPoints GameObject 
-        pickupController = pickupSpawnPoints.GetComponent("PickupController");
+        pickupController = pickupSpawnPoints.GetComponent("PickupController") as PickupController;
     }
 
 	// Use this for initialization
@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour {
             //call the Collected(...) function of the PickupController Component (script) and
             //pass the pickup we hit as the parameter for the function
             keyCollected = true;
+            
+            //this is messing up and is causing game to end with null reference exception
             pickupController.Collected(hit.gameObject);
 
         }
