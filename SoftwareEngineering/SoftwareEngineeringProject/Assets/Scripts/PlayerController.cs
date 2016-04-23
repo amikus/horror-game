@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
-
     
     private PickupController pickupController;
-    
+    private Image keyImage;
+
     void Awake ()
     {
         
@@ -14,6 +15,10 @@ public class PlayerController : MonoBehaviour {
 
         //and then retrieve the PickupController Component of the above PickupSpawnPoints GameObject 
         pickupController = pickupSpawnPoints.GetComponent("PickupController") as PickupController;
+
+        //load key image for later
+        GameObject keyUI = GameObject.Find("KeyUI");
+        keyImage = keyUI.GetComponent<Image>();
     }
 
 	// Use this for initialization
@@ -33,8 +38,8 @@ public class PlayerController : MonoBehaviour {
             //call the Collected(...) function of the PickupController Component (script) and
             //pass the pickup we hit as the parameter for the function
             GameVariables.keyCollected = true;
-            GameVariables.keyDisplayTime = 2;
-            
+            keyImage.enabled = true;
+
             //this is messing up and is causing game to end with null reference exception
             pickupController.Collected(hit.gameObject);
 
