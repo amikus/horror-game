@@ -58,5 +58,7 @@ Player character| ~~First-person camera~~ | 2 | | Hunter, John, Sam
  | ~~Ability to open doors~~ | 8 | | Sam
  | ~~Ability to fire weapons~~ | 13 | | Hunter, John
  | ~~Ability to take damage~~ | 8 | | Andrew, John
- Testing | Unit testing and assertions | 55 | 3 | Andrew
+ Testing | Unit testing and assertions | 55 | 3 | Andrew, Sam
  | Integration and manual testing | 55 | | John, Sam
+ Other | Documentation | Unestimated | 4 | Andrew, Sam
+ | Researching and learning software/tools | Unestimated | 15 | Andrew, Hunter, John, Sam
