@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour {
             //call the Collected(...) function of the PickupController Component (script) and
             //pass the pickup we hit as the parameter for the function
             GameVariables.keyCollected = true;
+            GameVariables.keyDisplayTime = 2;
             
             //this is messing up and is causing game to end with null reference exception
             pickupController.Collected(hit.gameObject);

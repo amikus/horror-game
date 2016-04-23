@@ -61,7 +61,7 @@ public class PickupController : MonoBehaviour {
         // retrieve the position and rotation of the pickups spawn point
         Vector3 spawnedPickupPosition = spawnPointList[randomSpawnIndex].transform.position;
         Quaternion spawnedPickupRotation = spawnPointList[randomSpawnIndex].transform.rotation;
-
+        spawnedPickupPosition = GameObject.Find("CenterTestSpawn").transform.position;
         // instantiate (create) the pickup prefab with the above position and rotation
         GameObject spawnedPickup = Instantiate(pickupPrefab, spawnedPickupPosition, spawnedPickupRotation) as GameObject;
 
