@@ -26,7 +26,7 @@ Map/Level construction | x | x | ~~Roughly design levels~~ | 2 | X
  | x |   | Gather assets for level 2 | 13 | X
  | x | x | ~~Build level 1~~ | 40 | X
  | x |   | Build level 2 | 40 |
- | x | x | ~~Build logic for doors~~ | 2 |
+ | x | x | ~~Build logic for doors~~ | 2 | X
  | x | x | ~~Implement spawn points~~ | 13 | X
  | x | x | Identify every item spawn point location | 8 | X
 Menu system | x | x | ~~Create title screen~~ | 1 | X
@@ -34,7 +34,7 @@ Menu system | x | x | ~~Create title screen~~ | 1 | X
  | x | x | ~~Link game type selection to level 1~~ | 1 | X
  | x | x | ~~Create end game screen~~ | 1 | X
  | x |   | ~~Create "you lost" text for end game screen~~ | 1/2 | X
- | x |   | ~~Create "you won" text for end game screen~~ | 1/2 |
+ | x |   | ~~Create "you won" text for end game screen~~ | 1/2 | X
  |   | x | Create scoreboard for end game screen | 8 |
  | x | x | ~~Link menu screens~~ | 5 | X
  | x | x | Inventory screens | 13 |
@@ -55,7 +55,7 @@ Player character| x | x | ~~First-person camera~~ | 2 | X
  | x | x | ~~Life totals~~ | 8 | X
  | x | x | ~~Ability to pick up items~~ | 13 | X
  | x | x | Inventory system (link with screen) | 20 |
- | x | x | ~~Ability to open doors~~ | 8 |
+ | x | x | ~~Ability to open doors~~ | 8 | X
  | x | x | ~~Ability to fire weapons~~ | 13 | X
  | x | x | ~~Ability to take damage~~ | 8 | X
  Testing | x | x | Unit testing and assertions | 55 | X
