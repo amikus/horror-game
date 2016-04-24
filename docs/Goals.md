@@ -30,8 +30,8 @@ Map/Level construction | x | x | ~~Roughly design levels~~ | 2 | X
  | x | x | ~~Implement spawn points~~ | 13 | X
  | x | x | Identify every item spawn point location | 8 | X
 Menu system | x | x | ~~Create title screen~~ | 1 | X
- | x | x | Create game type selection screen | 2
- | x | x | Link game type selection to level 1 | 1 |
+ | x | x | ~~Create game type selection screen~~ | 2 | X
+ | x | x | ~~Link game type selection to level 1~~ | 1 | X
  | x | x | ~~Create end game screen~~ | 1 | X
  | x |   | ~~Create "you lost" text for end game screen~~ | 1/2 | X
  | x |   | ~~Create "you won" text for end game screen~~ | 1/2 |
