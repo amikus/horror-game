@@ -11,6 +11,7 @@ public class PickupController : MonoBehaviour {
     public int numberOfPickups = 1;
     private int numberOfSpawnPoints;
 
+
     // array of spawnpoints that our pickup will be spawned at
     private GameObject[] spawnPointList;
 
