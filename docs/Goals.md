@@ -17,7 +17,7 @@ Monsters | x | x | ~~Research AI~~ | 40 | X
  |   | x | Add difficulty scaling as time passes | 3
  | x | x | ~~Set up spawning locations~~ | 13 | X
  | x | x | ~~Establish spawning type and frequency~~ | 20 | X
-Item Collection | x | x | Gather assets | 5 | X
+Item Collection | x | x | ~~Gather assets~~ | 5 | X
  | x | x | Add to environment | 3 | X
  | x | x | Set up item spawning locations | 5 | X
  | x |   | ~~Add logic to link to door~~ | 1 | X
@@ -28,7 +28,7 @@ Map/Level construction | x | x | ~~Roughly design levels~~ | 2 | X
  | x |   | Build level 2 | 40 |
  | x | x | ~~Build logic for doors~~ | 2 | X
  | x | x | ~~Implement spawn points~~ | 13 | X
- | x | x | Identify every item spawn point location | 8 | X
+ | x | x | ~~Identify every item spawn point location~~ | 8 | X
 Menu system | x | x | ~~Create title screen~~ | 1 | X
  | x | x | ~~Create game type selection screen~~ | 2 | X
  | x | x | ~~Link game type selection to level 1~~ | 1 | X
@@ -47,7 +47,7 @@ Music | x | x | ~~Gather background music assets~~ | 5 | X
  | x | x | ~~Link background music to title screen and game type selection screens~~ | 3 | X
  | x | x | ~~Link background music to end screens~~ | 3 | X
 In-game UI |   | x | Score (in survival mode) | 8 |
- | x | x | Items (including weapons) | 20 | X
+ | x | x | ~~Items (including weapons)~~ | 20 | X
  | x | x | Ability to access menu system from within game | 5 | X
 Player character| x | x | ~~First-person camera~~ | 2 | X
  | x | x | ~~Movement~~ | 5 | X
