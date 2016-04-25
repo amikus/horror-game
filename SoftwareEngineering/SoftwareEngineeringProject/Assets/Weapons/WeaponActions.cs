@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WeaponActions : MonoBehaviour {
 
 	public Weapon weapon;
 	public GameObject[] weapons = new GameObject[3];
+	public Text weaponUI;
 
 	void Start () {
 		weapons [0].SetActive (true);
@@ -14,7 +16,6 @@ public class WeaponActions : MonoBehaviour {
 
 	void Update () {
 		Vector3 forward = weapon.rayCaster.transform.TransformDirection (Vector3.forward) * weapon.range;
-		Debug.DrawRay (weapon.rayCaster.transform.position, forward, Color.green);
 		RaycastHit hit;
 		Recoil ();
 
@@ -87,13 +88,11 @@ public class WeaponActions : MonoBehaviour {
 				weapon.recoil += Time.deltaTime/(60/weapon.RPM);
 			}
 		}//firing auto
-	}//Update
 
-	void OnGUI() {
-		GUILayout.Label("Weapon : " + weapon.name);
-		GUILayout.Label("Ammo in Clip : " + (int)weapon.ammoInClip);
-		GUILayout.Label("Ammo in Reserve : " + (int)weapon.ammoReserve);
-	}//OnGUI
+		weaponUI.text = "\t" + "Weapon : " + weapon.name + "\n"
+					  + "\t" + "Ammo in Clip : " + (int)weapon.ammoInClip + "\n"
+					  + "\t" + "Ammo in Reserve : " + (int)weapon.ammoReserve;
+	}//Update
 
 	IEnumerator Reload() {
 		if (weapon.type == Weapon.weaponType.shotgun) {
