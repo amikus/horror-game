@@ -56,29 +56,7 @@ public class WeaponPickup : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Q))//Weapon Drop
-        {
-            if(AK.activeSelf)
-            {   gunCount--;
-               
-                AK.SetActive(false);
-              if(gunCount == 1)
-                {
-                    gun2.SetActive(true);
-                }
-                
-            }
-
-            if (gun2.activeSelf)
-            {
-                gunCount--;
-                gun2.SetActive(false);
-                if(gunCount == 1)
-                {
-                    AK.SetActive(true);
-                }
-            }
-        }
+        
 
         if(gunCount == 2)
         {
