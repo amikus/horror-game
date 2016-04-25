@@ -19,11 +19,11 @@ The majority of our work took place in the Unity 5 game development IDE, and we 
 
 ####Project Management-Related Documentation
 
-* [Project Proposal](Project Proposal.md) - This contains a broad description of our original project goals and anticipated features. We did not update this document after it was originally created.
-* [Organizational Structure](Organizational Structure.md) - Here we defined the anticipated division of labor among our team members. We did not update this documents after it was originally created.
-* [Goals](Goals.md) - This contains a detailed breakdown of each task that we thought would need to be accomplished to create our project, as well as estimates of how long we expected each task to take (in Scrum-like points). This was a "living" document, and we updated it on a regular basis, indicating when tasks had begun and when they had been completed. This document guided our development process, as it reminded us of our initial plans and kept us from wandering too far away from them. While we did not remove any of our initial goals from the document (even uncompleted goals), we did occassionally add additional items to our list.
-* [Estimations](Estimations.md) - This document contains our original point-based estimates from our Goals document, but also includes estimates of the actual time that it took us to complete each task. This allowed us to see how accurate our original estimates had been when we completed the project.
-* [Testing](Testing.md)  - This document allowed us to keep track of our unit, manual, and integration tests.
+* [Project Proposal](https://github.com/amikus/horror-game/blob/master/docs/Project%20Proposal.md) - This contains a broad description of our original project goals and anticipated features. We did not update this document after it was originally created.
+* [Organizational Structure](https://github.com/amikus/horror-game/blob/master/docs/Organizational%20Structure.md) - Here we defined the anticipated division of labor among our team members. We did not update this documents after it was originally created.
+* [Goals](https://github.com/amikus/horror-game/blob/master/docs/Goals.md) - This contains a detailed breakdown of each task that we thought would need to be accomplished to create our project, as well as estimates of how long we expected each task to take (in Scrum-like points). This was a "living" document, and we updated it on a regular basis, indicating when tasks had begun and when they had been completed. This document guided our development process, as it reminded us of our initial plans and kept us from wandering too far away from them. While we did not remove any of our initial goals from the document (even uncompleted goals), we did occassionally add additional items to our list.
+* [Estimations](https://github.com/amikus/horror-game/blob/master/docs/Estimations.md) - This document contains our original point-based estimates from our Goals document, but also includes estimates of the actual time that it took us to complete each task. This allowed us to see how accurate our original estimates had been when we completed the project.
+* [Testing](https://github.com/amikus/horror-game/blob/master/docs/Testing.md)  - This document allowed us to keep track of our unit, manual, and integration tests.
 
 ####Tools/Languages Used
 Unity 5
