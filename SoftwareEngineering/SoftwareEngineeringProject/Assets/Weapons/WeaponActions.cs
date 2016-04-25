@@ -7,12 +7,13 @@ public class WeaponActions : MonoBehaviour {
 	public Weapon weapon;
 	public GameObject[] weapons = new GameObject[3];
 	public Text weaponUI;
+	private bool isSwitching0, isSwitching1, isSwitching2 = false;
+	private float switchSeconds = 1;
+	private float switchTimer = 0;
+	public Vector3 equippedPosition0, equippedPosition1, equippedPosition2, holsterPosition;
+	public Quaternion equippedRotation0, equippedRotation1, equippedRotation2, holsterRotation;
 
-	void Start () {
-		weapons [0].SetActive (true);
-		weapons [1].SetActive (false);
-		weapons [2].SetActive (false);
-	}//Start
+	void Start () {}//Start
 
 	void Update () {
 		Vector3 forward = weapon.rayCaster.transform.TransformDirection (Vector3.forward) * weapon.range;
@@ -21,18 +22,57 @@ public class WeaponActions : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.C)) {
 			if (weapons [0].activeSelf == true) {
-				weapons [0].SetActive (false);
-				weapons [1].SetActive (true);
+				startSwitch0 ();
 			}
 			else if (weapons [1].activeSelf == true) {
-				weapons [1].SetActive (false);
-				weapons [2].SetActive (true);
+				startSwitch1 ();
 			}
 			else {
-				weapons [2].SetActive (false);
-				weapons [0].SetActive (true);
+				startSwitch2 ();
 			}
-		}//weapon switching
+		}//weapon switch checker
+
+		if (isSwitching0) {
+			switchTimer += Time.deltaTime;
+			if (switchTimer > switchSeconds) {
+				stopSwitch0 ();
+			}
+			else {
+				float ratio = switchTimer / switchSeconds;
+				weapons [0].transform.localPosition = Vector3.Lerp(equippedPosition0, holsterPosition, ratio);
+				weapons [0].transform.localRotation = Quaternion.Slerp(equippedRotation0, holsterRotation, ratio);
+				weapons [1].transform.localPosition = Vector3.Lerp(holsterPosition, equippedPosition1, ratio);
+				weapons [1].transform.localRotation = Quaternion.Slerp(holsterRotation, equippedRotation1, ratio);
+			}
+		}//weapon switch 0
+
+		if (isSwitching1) {
+			switchTimer += Time.deltaTime;
+			if (switchTimer > switchSeconds) {
+				stopSwitch1 ();
+			}
+			else {
+				float ratio = switchTimer / switchSeconds;
+				weapons [1].transform.localPosition = Vector3.Lerp(equippedPosition1, holsterPosition, ratio);
+				weapons [1].transform.localRotation = Quaternion.Slerp(equippedRotation1, holsterRotation, ratio);
+				weapons [2].transform.localPosition = Vector3.Lerp(holsterPosition, equippedPosition2, ratio);
+				weapons [2].transform.localRotation = Quaternion.Slerp(holsterRotation, equippedRotation2, ratio);
+			}
+		}//weapon switch 1
+
+		if (isSwitching2) {
+			switchTimer += Time.deltaTime;
+			if (switchTimer > switchSeconds) {
+				stopSwitch2 ();
+			}
+			else {
+				float ratio = switchTimer / switchSeconds;
+				weapons [2].transform.localPosition = Vector3.Lerp(equippedPosition2, holsterPosition, ratio);
+				weapons [2].transform.localRotation = Quaternion.Slerp(equippedRotation2, holsterRotation, ratio);
+				weapons [0].transform.localPosition = Vector3.Lerp(holsterPosition, equippedPosition0, ratio);
+				weapons [0].transform.localRotation = Quaternion.Slerp(holsterRotation, equippedRotation0, ratio);
+			}
+		}//weapon switch 2
 
 		if (Input.GetKeyDown (KeyCode.R) || Input.GetMouseButtonDown (0)) {
 			StopCoroutine ("Reload");
@@ -99,6 +139,58 @@ public class WeaponActions : MonoBehaviour {
 		}
 	}//Update
 
+	void startSwitch0() {
+		isSwitching0 = true;
+		switchTimer = 0;
+		weapons [1].transform.localPosition = holsterPosition;
+		weapons [1].transform.localRotation = holsterRotation;
+		weapons [1].SetActive (true);
+
+	}//startSwitch0
+
+	void stopSwitch0() {
+		isSwitching0 = false;
+		weapons [0].transform.localPosition = holsterPosition;
+		weapons [0].transform.localRotation = holsterRotation;
+		weapons [1].transform.localPosition = equippedPosition1;
+		weapons [1].transform.localRotation = equippedRotation1;
+		weapons [0].SetActive (false);
+	}//stopSwitch0
+
+	void startSwitch1() {
+		isSwitching1 = true;
+		switchTimer = 0;
+		weapons [2].transform.localPosition = holsterPosition;
+		weapons [2].transform.localRotation = holsterRotation;
+		weapons [2].SetActive (true);
+	}//startSwitch1
+
+	void stopSwitch1() {
+		isSwitching1 = false;
+		weapons [1].transform.localPosition = holsterPosition;
+		weapons [1].transform.localRotation = holsterRotation;
+		weapons [2].transform.localPosition = equippedPosition2;
+		weapons [2].transform.localRotation = equippedRotation2;
+		weapons [1].SetActive (false);
+	}//stopSwitch1
+
+	void startSwitch2() {
+		isSwitching2 = true;
+		switchTimer = 0;
+		weapons [0].transform.localPosition = holsterPosition;
+		weapons [0].transform.localRotation = holsterRotation;
+		weapons [0].SetActive (true);
+	}//startSwitch2
+
+	void stopSwitch2() {
+		isSwitching2 = false;
+		weapons [2].transform.localPosition = holsterPosition;
+		weapons [2].transform.localRotation = holsterRotation;
+		weapons [0].transform.localPosition = equippedPosition0;
+		weapons [0].transform.localRotation = equippedRotation0;
+		weapons [2].SetActive (false);
+	}//stopSwitch2
+	
 	IEnumerator Reload() {
 		if (weapon.type == Weapon.weaponType.shotgun) {
 			for (int i = 0; weapon.ammoInClip != weapon.clipSize; i++) {
@@ -130,14 +222,12 @@ public class WeaponActions : MonoBehaviour {
 		if (weapon.recoil > 0) {
 			var maxRecoil = Quaternion.Euler(weapon.maxRecoilX+Random.Range( -5, 5), weapon.maxRecoilY+Random.Range(-5, 5), 0);
 			transform.localRotation = Quaternion.Slerp(transform.localRotation, maxRecoil, Time.deltaTime*weapon.recoilRate);
-			transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
 			weapon.recoil -= Time.deltaTime/(60/weapon.RPM);
 		}
 		else
 		{
 			weapon.recoil = 0;
 			transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime*weapon.recoilRate);
-			transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
 		}
 	}//Recoil
 
