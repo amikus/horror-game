@@ -21,21 +21,21 @@
 * **EnemyManager** - Used to govern instantiation of enemies in game
 * **MonsterSpawnPoints** - Parent object which contains a number of spawn points for enemies, utilized by EnemyManager
 * **Terrain** - Contains environment through which character moves, including:
-** **Boundaries** - Parent object containing edges of the map, beyond which player cannot tranverse
-** **KeySpawnPoints** - Parent object containing all possible key spawn locations
-** **Environment** - Contains main environmental features like trees, walls, etc.
-** **ghoulprefab** - An instantiation of the ghoul prefab, intended to stand directly behind the door at the end of the game
+ * **Boundaries** - Parent object containing edges of the map, beyond which player cannot tranverse
+ * **KeySpawnPoints** - Parent object containing all possible key spawn locations
+ * **Environment** - Contains main environmental features like trees, walls, etc.
+ * **ghoulprefab** - An instantiation of the ghoul prefab, intended to stand directly behind the door at the end of the game
 * **FPSController** - The main player character object, handling movement logic, player health, etc., including:
-** **Main Camera** - Primary camera through which player character (and player) sees the game
-*** **FPV_Camera** - Primary logic for camera
-*** **Flashlight** - Light source for player
-*** **Weapons** - Including PPQ22, Shotgun, Ak-47
+ * **Main Camera** - Primary camera through which player character (and player) sees the game
+  * **FPV_Camera** - Primary logic for camera
+  * **Flashlight** - Light source for player
+  * **Weapons** - Including PPQ22, Shotgun, Ak-47
 * **HUDCanvas** - Heads Up Display for player, including:
-** **HealthUI** - Displays health information about player character
-** **WeaponUI** - Displays basic weapon information
-** **DamageImage** - Tints screen red when attacked
-** **CrosshairUI** - Crosshair for weapon
-** **KeyUI** - Displays key icon on screen when key is picked up
+ * **HealthUI** - Displays health information about player character
+ * **WeaponUI** - Displays basic weapon information
+ * **DamageImage** - Tints screen red when attacked
+ * **CrosshairUI** - Crosshair for weapon
+ * **KeyUI** - Displays key icon on screen when key is picked up
 
 ##Scripts
 
