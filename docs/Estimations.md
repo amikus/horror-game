@@ -6,9 +6,9 @@ Goal Type| Description | Estimated Effort (Points) | Actual Effort (Hours) | Dev
 Win conditions | ~~Add logic to level 1 for win condition~~ | 1 | 3 | Sam
  | Add logic to level 2 for win condition | 1 | |
  | Add score board to level | 5 | |
-Monsters | ~Research AI~~ | 40 | 15 | Andrew
- | ~~Reach decision about AI varieties~~ | 8 | 3 | Andrew
- | ~~Gather model assets~~ | 5 | 1 | Andrew 
+Monsters | ~Research AI~~ | 40 | 18 | Andrew
+ | ~~Reach decision about AI varieties~~ | 8 | 4 | Andrew
+ | ~~Gather model assets~~ | 5 | 2 | Andrew 
  | ~~Animate models~~ | 13 | 3 | Andrew
  | ~~Add ability to track player movement~~ | 8 | 2 | Andrew
  | ~~Add hit points~~ | 2 | 1 | Andrew
@@ -17,8 +17,8 @@ Monsters | ~Research AI~~ | 40 | 15 | Andrew
  | Add difficulty scaling as time passes | 3 | |
  | ~~Set up spawning locations~~ | 13 | 3 | Andrew
  | ~~Establish spawning type and frequency~~ | 20 | 1 | Andrew
-Item Collection | ~~Gather assets~~ | 5 | 7 | Hunter, John, Sam
- | ~~Add to environment~~ | 3 | 5 | Hunter, Sam
+Item Collection | ~~Gather assets~~ | 5 | 11 | Hunter, John, Sam
+ | ~~Add to environment~~ | 3 | 15 | Hunter, Sam
  | ~~Set up item spawning locations~~ | 5 | 2 | Andrew, Sam
  | ~~Add logic to link to door~~ | 1 | 2 | Sam
 Map/Level construction | ~~Roughly design levels~~ | 2 | 2 | Sam
@@ -38,8 +38,8 @@ Menu system | ~~Create title screen~~ | 1 | 1 | Sam
  | Create scoreboard for end game screen | 8 | |
  | ~~Link menu screens~~ | 5 | 4 | Sam
  | Inventory screens | 13 | |
-Sound effects | ~~Gather sound effect assets~~ | 5 | 2 | Andrew, Hunter
- | ~~Link sound effects to level 1~~ | 13 | 2 | Andrew, Hunter
+Sound effects | ~~Gather sound effect assets~~ | 5 | 9 | Andrew, Hunter
+ | ~~Link sound effects to level 1~~ | 13 | 4 | Andrew, Hunter
  | Link sound effects to level 2 | 13 | |
 Music | ~~Gather background music assets~~ | 5 | 1 | Andrew
  | ~~Link background music to level 1~~ | 3 | 0.5 | Andrew
@@ -47,18 +47,18 @@ Music | ~~Gather background music assets~~ | 5 | 1 | Andrew
  | ~~Link background music to title screen and game type selection screens~~ | 3 | 0.5 | Andrew
  | ~~Link background music to end screens~~ | 3 | 0.5 | Andrew
 In-game UI | Score (in survival mode) | 8 | |
- | ~~Items (including weapons)~~ | 20 | 3 | Andrew, Hunter, Sam
+ | ~~Items (including weapons)~~ | 20 | 5 | Andrew, Hunter, Sam
  | Ability to access menu system from within game | 5 | |
-Player character| ~~First-person camera~~ | 2 | 1 | Hunter, John, Sam
- | ~~Movement~~ | 5 | 1 | Hunter, John, Sam
- | ~~Targeting crosshair~~ | 8 | | Hunter
+Player character| ~~First-person camera~~ | 2 | 9 | Hunter, John, Sam
+ | ~~Movement~~ | 5 | 1 | John, Sam
+ | ~~Targeting crosshair~~ | 8 | 2 | Hunter
  | ~~Life totals~~ | 8 | 1 | John
- | ~~Ability to pick up items~~ | 13 | 5 | Hunter, John, Sam
+ | ~~Ability to pick up items~~ | 13 | 5 | John, Sam
  | Inventory system (link with screen) | 20 | |
  | ~~Ability to open doors~~ | 8 | 4 | Sam
- | ~~Ability to fire weapons~~ | 13 | | Hunter
+ | ~~Ability to fire weapons~~ | 13 | 15 | Hunter
  | ~~Ability to take damage~~ | 8 | 4 | Andrew, John
  Testing | Unit testing and assertions | 55 | 4 | Andrew, Sam
  | Integration and manual testing | 55 | 17 | Andrew, John, Sam
  Other | Documentation | Unestimated | 7 | Andrew, Sam
- | Researching and learning software/tools | Unestimated | 46 | Andrew, Hunter, John, Sam
+ | Researching and learning software/tools | Unestimated | 63 | Andrew, Hunter, John, Sam
