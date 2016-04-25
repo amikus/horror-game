@@ -90,8 +90,13 @@ public class WeaponActions : MonoBehaviour {
 		}//firing auto
 
 		weaponUI.text = "\t" + "Weapon : " + weapon.name + "\n"
-					  + "\t" + "Ammo in Clip : " + (int)weapon.ammoInClip + "\n"
-					  + "\t" + "Ammo in Reserve : " + (int)weapon.ammoReserve;
+					  + "\t" + "Ammo in Clip : " + (int)weapon.ammoInClip + "\n";
+		if (weapon.type == Weapon.weaponType.pistol) {
+			weaponUI.text += "\t" + "Ammo in Reserve : Infinity";
+		}
+		else {
+			weaponUI.text += "\t" + "Ammo in Reserve : " + (int)weapon.ammoReserve;
+		}
 	}//Update
 
 	IEnumerator Reload() {
