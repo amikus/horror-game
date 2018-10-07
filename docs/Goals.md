@@ -1,5 +1,5 @@
-#Goals
-###Work to be completed. Completed work is struck through.
+# Goals
+### Work to be completed. Completed work is struck through.
 
 Goal | Escape Mode | Survival Mode | Description | Estimated Effort | Work Begun
 -----|-------------|---------------|-------------|--------|------------
