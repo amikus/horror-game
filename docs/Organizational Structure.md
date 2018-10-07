@@ -1,26 +1,26 @@
-#Organizational Structure
+# Organizational Structure
 
 We all plan to take part in all aspects of the game's design, and we plan to re-assign and access tasks/workload each week, as needed.
 
 To begin, we will divide the work as follows:
 
-####All
+#### All
 * Initial documentation
 
-####Individually
+#### Individually
 
-######Sam Gosman
+###### Sam Gosman
 * Level design
 
-######John Karr
+###### John Karr
 * Monster assets
 * AI research
 
-######Andrew Klem
+###### Andrew Klem
 * Editing and expanding initial documentation
 * AI research
 
-######Hunter French
+###### Hunter French
 * Researching tools (including Unity and Github)
 
 
