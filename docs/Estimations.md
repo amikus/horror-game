@@ -1,5 +1,5 @@
-#Estimations
-###Projected and actual effort required to complete goals. Completed tasks are struck through.
+# Estimations
+### Projected and actual effort required to complete goals. Completed tasks are struck through.
 
 Goal Type| Description | Estimated Effort (Points) | Actual Effort (Hours) | Developers
 ---------|-------------|---------------|-------------|-------------
