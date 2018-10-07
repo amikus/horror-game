@@ -1,7 +1,7 @@
-#Program Structure
-###Structure of the Unity program, including a brief description of code organization and functionality
+# Program Structure
+### Structure of the Unity program, including a brief description of code organization and functionality
 
-##Scenes
+## Scenes
 
 * **Sam's Scene** - Used for Normal gameplay mode. Win condition is finding the key and navigating to the door of the two-storied building. Can transition to either the Game Over or Victory screens.
 * **SurvivalMode** - Used for survival mode. No win condition. Can only transition to Game Over screen.
@@ -10,7 +10,7 @@
 * **UnitTesting** - Used for additional testing
 * **Victory** - Used to display "You WIN!" when win condition is met in normal gameplay mode.
 
-##Major Game Objects
+## Major Game Objects
 
 * **Main Camera** - Primary camera through which player sees the game, and in non-menu scenes, this is nested within the FPSController
 * **Start Menu** - Main start screen (UI)
@@ -37,7 +37,7 @@
  * **CrosshairUI** - Crosshair for weapon
  * **KeyUI** - Displays key icon on screen when key is picked up
 
-##Scripts
+## Scripts
 
 * **AI** - Controls overall behavior of enemy objects
 * **CameraFollow** - Controls camera behavior
